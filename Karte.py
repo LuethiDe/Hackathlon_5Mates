@@ -4,6 +4,10 @@ import geopandas as gpd
 from pyproj import Transformer
 import json
 
+gdf = gpd.read_file("data/Bauobjekte.gpkg")
+print(gdf.columns)
+gdf.to_file("data/bauobjekte.geojson", driver="GeoJSON")
+
 map_with_layers = folium.Map(location=[46.8,8.3], zoom_start=8, control_scale=True,tiles=None)
 
 tile_url="https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg"
@@ -118,4 +122,4 @@ for feature in geojson_data["features"]:
         ).add_to(map_with_layers)
 
 folium.LayerControl().add_to(map_with_layers)
-map_with_layers
+map_with_layers.save("data/map.html")
