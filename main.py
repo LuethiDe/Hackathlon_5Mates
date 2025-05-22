@@ -1,14 +1,25 @@
 import pandas as pd
+import glob
 import geopandas as gpd
 from shapely.geometry import Point
 from geocoding import get_lv95_coordinates
 from archive import archive_all_csvs
 from write_geopackage import combine_with_existing
 
-# 1. CSV laden
-df = pd.read_csv("Data/*.csv", sep=";")
+# 1. Alle CSVs im Data-Ordner verarbeiten
+csv_files = glob.glob("Data/*.csv")
+if not csv_files:
+    raise FileNotFoundError("Keine CSV-Dateien im Data-Ordner gefunden!")
 
-# 2. Adresse für Geocoding zusammensetzen (Strasse + HausNr + Gemeinde)
+df_list = []
+for filepath in csv_files:
+    df = pd.read_csv(filepath, sep=";")
+    df_list.append(df)
+
+# Alle CSVs zusammenfassen
+df = pd.concat(df_list, ignore_index=True)
+
+# 2. Adresse für Geocoding zusammensetzen
 def make_searchtext(row):
     strasse = str(row["Strasse"]).strip() if not pd.isna(row["Strasse"]) else ""
     hausnr = str(row["HausNr"]).strip() if not pd.isna(row["HausNr"]) else ""
@@ -41,7 +52,7 @@ gdf = gpd.GeoDataFrame(
 )
 
 # 6. GeoPackage schreiben/an bestehendes anhängen
-combine_with_existing(gdf)  # ID-Spalte optional ergänzen
+combine_with_existing(gdf)  # Wenn du eine ID-Spalte hast: combine_with_existing(gdf, unique_id_col="ID")
 
 print("GeoPackage erfolgreich erstellt! Anzahl Objekte:", len(gdf))
 
