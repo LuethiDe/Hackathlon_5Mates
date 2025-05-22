@@ -1,3 +1,10 @@
-﻿ID;BGNr;Status;Bauobjekt;Bewilligung;Kanton;Gemeinde;Strasse;HausNr;ParzNr;Name;Vorname
-1;2024-12;bewilligt;Kinderspielhaus;12.05.2025;AG;Aristau;Gizlen;7;484;Stöckli;Oliver und Anna
-2;2025-03;bewilligt;Sichtschutzwände;13.05.2025;AG;Auw;Bergstrasse;20b;908;Schürpf;Markus und Sandra
+﻿ID;BGNr;Status;Bauobjekt;Bewilligung;Kanton;Gemeinde;PLZ;Strasse;HausNr;ParzNr;Name;Vorname
+1;2024-12;bewilligt;Kinderspielhaus;12.05.2025;AG;Aristau;5628;Gizlen;7;484;Stöckli;Oliver und Anna
+2;2025-03;bewilligt;Sichtschutzwände;13.05.2025;AG;Auw;5642;Bergstrasse;20b;908;Schürpf;Markus und Sandra
+3;2025-039;Auflage;Einstellhalle;;AG;Muri;5630;Regliweg;6;670;Meienberg;Karl und Therese
+4;2025-035;Auflage;Anbau Alterswohnung und Rückbau Gartenschopf;;AG;Muri;5630;Verenagässli;6;3424;Stappung;Markus und Elisabeth
+5;2025-18;Auflage;Neubau Velounterstand;;AG;Merenschwand;5634;Unterdorf;10;2137;Hurni;Vera
+6;2025-17;Auflage;Wärmepumpe;;AG;Merenschwand;5634;Sonnenrain;12;2467;Schaub;Christian und Beatrice
+7;2025-079;Gesuch;Neubau Einfamilienhaus;;AG;Aarau;5000;Hombergstrasse;15;7247;Schönmann;Ernst und Regula
+8;2025-0042;Gesuch;Gartenmauer;;AG;Lenzburg;5600;Brunnmattstrasse;30;2353;Kieser;Thomas
+9;2025-0004;abgelehnt;Heizungsersatz;;AG;Lenzburg;5600;Juraweg;7;624;Thill;Beat
