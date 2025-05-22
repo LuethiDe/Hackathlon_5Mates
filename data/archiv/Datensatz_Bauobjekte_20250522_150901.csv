@@ -1,0 +1,13 @@
+ID;BGNr;Status;Bauobjekt;Bewilligung;Kanton;Gemeinde;PLZ;Strasse;HausNr;ParzNr;Name;Vorname
+1;2024-12;bewilligt;Kinderspielhaus;2025-05-12;AG;Aristau;5628;Gizlen;7;484;Stoeckli;Oliver und Anna
+2;2025-03;bewilligt;Sichtschutzwaende;2025-05-13;AG;Auw;5642;Bergstrasse;20b;908;Schuerpf;Markus und Sandra
+3;2025-039;Auflage;Einstellhalle;;AG;Muri;5630;Regliweg;6;670;Meienberg;Karl und Therese
+4;2025-035;Auflage;Anbau Alterswohnung und Rueckbau Gartenschopf;;AG;Muri;5630;Verenagaessli;6;3424;Stappung;Markus und Elisabeth
+5;2025-18;Auflage;Neubau Velounterstand;;AG;Merenschwand;5634;Unterdorf;10;2137;Hurni;Vera
+6;2025-17;Auflage;Waermepumpe;;AG;Merenschwand;5634;Sonnenrain;12;2467;Schaub;Christian und Beatrice
+7;2025-079;Gesuch;Neubau Einfamilienhaus;;AG;Aarau;5000;Hombergstrasse;15;7247;Schuenmann;Ernst und Regula
+8;2025-0042;Gesuch;Gartenmauer;;AG;Lenzburg;5600;Brunnmattstrasse;30;2353;Kieser;Thomas
+9;2025-0004;abgelehnt;Heizungsersatz;;AG;Lenzburg;5600;Juraweg;7;624;Thill;Beat
+10;2025-03;bewilligt;Photovoltaikanlage;2025-04-30;AG;Ammerswil;5600;Struebiweg;1;532;Fuss;Andre
+11;2024-14;bewilligt;Umbau und Sanierung Bauernhaus;2025-04-30;AG;Ammerswil;5600;Weiherackerstrasse;1;101;Marti;Stephan
+12;2025-015;bewilligt;Neubau 2 MFH mit Tiefgarage;2025-04-23;AG;Staufen;5603;Gaessli;11;160;Zuckschwerdt;Max
