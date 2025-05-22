@@ -27,12 +27,3 @@ def get_lv95_coordinates(search_text):
     else:
         print(f"Fehler: {response.status_code}")
         return None
-
-# Beispiel:
-adresse = "Hägendorf 402"
-lv95 = get_lv95_coordinates(adresse)
-
-if lv95:
-    print(f"LV95 Koordinaten für '{adresse}': Ost (E) = {lv95[0]}, Nord (N) = {lv95[1]}")
-else:
-    print("Keine Koordinaten gefunden.")
