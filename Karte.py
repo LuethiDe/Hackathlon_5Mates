@@ -2,10 +2,7 @@ import folium
 import shiny
 import geopandas as gpd
 from pyproj import Transformer
-
-gdf = gpd.read_file("data/Bauobjekte_mit_Koordinaten.gpkg")
-print(gdf.columns)
-gdf.to_file("data/bauobjekte.geojson", driver="GeoJSON")
+import json
 
 map_with_layers = folium.Map(location=[46.8,8.3], zoom_start=8, control_scale=True,tiles=None)
 
@@ -33,6 +30,19 @@ folium.GeoJson(
     geojson_path,
     name="Kantonsgrenzen",
     tooltip=folium.GeoJsonTooltip(fields=["NAME"], aliases=["Kanton:"]),
+    style_function=lambda x: {
+        'fillColor': 'transparent',
+        'color': 'black',
+        'weight': 2
+    }
+).add_to(map_with_layers)
+
+geojson_path = "data/swissBOUNDARIES3D_1_3_TLM_GEMEINDEGRENZEN.geojson"
+
+folium.GeoJson(
+    geojson_path,
+    name="Gemeindegrenzen",
+    tooltip=folium.GeoJsonTooltip(fields=["datum_erstellung"], aliases=["Gemeinde:"]),
     style_function=lambda x: {
         'fillColor': 'transparent',
         'color': 'black',
@@ -104,14 +114,7 @@ for feature in geojson_data["features"]:
         folium.Marker(
             location=[lat, lon],
             tooltip=tooltip_text,
-            icon=folium.Icon(color=color, icon="info-sign")
-        ).add_to(map_with_layers)
-        
-        # Marker erstellen
-        folium.Marker(
-            location=[lat, lon],
-            tooltip=tooltip_text,
-            icon=folium.Icon(color=color, icon="info-sign")
+            icon=folium.Icon(color=color, icon="road")
         ).add_to(map_with_layers)
 
 folium.LayerControl().add_to(map_with_layers)
