@@ -37,18 +37,18 @@ folium.GeoJson(
     }
 ).add_to(map_with_layers)
 
-geojson_path = "data/swissBOUNDARIES3D_1_3_TLM_GEMEINDEGRENZEN.geojson"
+# geojson_path = "data/swissBOUNDARIES3D_1_3_TLM_GEMEINDEGEBIET.geojson"
 
-folium.GeoJson(
-    geojson_path,
-    name="Gemeindegrenzen",
-    tooltip=folium.GeoJsonTooltip(fields=["datum_erstellung"], aliases=["Gemeinde:"]),
-    style_function=lambda x: {
-        'fillColor': 'transparent',
-        'color': 'black',
-        'weight': 2
-    }
-).add_to(map_with_layers)
+# folium.GeoJson(
+#     geojson_path,
+#     name="Gemeindegebiete",
+#     tooltip=folium.GeoJsonTooltip(fields=["Gemeindename"], aliases=["Gemeinde:"]),
+#     style_function=lambda x: {
+#         'fillColor': 'transparent',
+#         'color': 'black',
+#         'weight': 2
+#     }
+# ).add_to(map_with_layers)
 
 geojson_path = "data/bauobjekte.geojson"
 
