@@ -4,6 +4,7 @@
 #http://localhost:8501
 
 from main import process_csv
+from Karte import exp_geojson
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -70,13 +71,14 @@ def Formular(item):
                 "Vorname": Vorname
             }
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
-            df.to_csv(csv_path, index=False)
+            df.to_csv(csv_path, index=False, sep=";")
             st.success("Neues Baugesuch erfasst!")
             gdf = process_csv()
             if gdf is not None:
                 st.success("GeoPackage erfolgreich erstellt!")
             else:
-                st.error("Fehler beim Erstellen des GeoPackage.")   
+                st.error("Fehler beim Erstellen des GeoPackage.")
+            exp_geojson()
             st.session_state["show_dialog"] = False
             st.rerun()
 
@@ -84,19 +86,19 @@ def Formular(item):
 if st.button("Neus Baugesuch erfassen"):
     Formular("A")
 
-# Ausgabe gewähltes Baugesuch    
+# Ausgabe gewähltes Baugesuch
 left_column, right_column = st.columns([2,4])
-left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
-left_column.write(f"Bauobjekt: {bauobjekt}")
-left_column.write(f"Bewilligung: {bewilligung}")
-left_column.write(f"Adresse: {strasse} {hausnr}")
-left_column.write(f"Gemeinde: {plz} {gemeinde}")
-left_column.write(f"Kanton: {kanton}")
-left_column.write(f"Parzelle: {parznr}")
-left_column.write(f"Eigentümer: {vorname} {name}")
+# left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
+# left_column.write(f"Bauobjekt: {bauobjekt}")
+# left_column.write(f"Bewilligung: {bewilligung}")
+# left_column.write(f"Adresse: {strasse} {hausnr}")
+# left_column.write(f"Gemeinde: {plz} {gemeinde}")
+# left_column.write(f"Kanton: {kanton}")
+# left_column.write(f"Parzelle: {parznr}")
+# left_column.write(f"Eigentümer: {vorname} {name}")
 
 
 with right_column:
-    with open("data/map.html", "r", encoding="utf-8") as f:
+    with open("map.html", "r", encoding="utf-8") as f:
         html_data = f.read()
     st.components.v1.html(html_data, height=500, width=900)

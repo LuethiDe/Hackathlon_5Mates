@@ -8,7 +8,7 @@ def process_csv():
     from write_geopackage import combine_with_existing
 
     # 1. Alle CSVs im Data-Ordner verarbeiten
-    csv_files = glob.glob("Data/*.csv")
+    csv_files = glob.glob("data/*.csv")
     if not csv_files:
         raise FileNotFoundError("Keine CSV-Dateien im Data-Ordner gefunden!")
 
@@ -22,10 +22,10 @@ def process_csv():
 
     # 2. Adresse für Geocoding zusammensetzen
     def make_searchtext(row):
-        strasse = str(row["Strasse"]).strip() if not pd.isna(row["Strasse"]) else ""
-        hausnr = str(row["HausNr"]).strip() if not pd.isna(row["HausNr"]) else ""
-        gemeinde = str(row["Gemeinde"]).strip() if not pd.isna(row["Gemeinde"]) else ""
-        return f"{strasse} {hausnr} {gemeinde}".strip()
+        Strasse = str(row.get("Strasse", "")).strip()
+        HausNr = str(row.get("HausNr", "")).strip()
+        Gemeinde = str(row.get("Gemeinde", "")).strip()
+        return f"{Strasse} {HausNr} {Gemeinde}".strip()
 
     df["Suchtext"] = df.apply(make_searchtext, axis=1)
 
