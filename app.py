@@ -69,7 +69,7 @@ def Formular(item):
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_csv(csv_path, index=False)
             st.success("Neues Baugesuch erfasst!")
-            gdf = process_csv("data")
+            gdf = process_csv()
             if gdf is not None:
                 st.success("Daten ausgewertet und GeoPackage aktualisiert!")
             else:
