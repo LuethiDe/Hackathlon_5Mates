@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+<<<<<<< HEAD
+                #map_74cbe19b545cc59e3052ef5025e4b76c {
+=======
+                #map_61be7fc2c93c139dc59f56ba528f4878 {
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<style>
+    .info-panel {
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        max-width: 300px;
+    }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var infoPanel = L.control({position: 'bottomright'});
+    infoPanel.onAdd = function(map) {
+        this._div = L.DomUtil.create('div', 'info-panel');
+        this.update();
+        return this._div;
+    };
+    infoPanel.update = function(props) {
+        if (!props) {
+            this._div.innerHTML = '<h4>Bitte Marker anklicken</h4>';
+            return;
+        }
+        this._div.innerHTML = `
+            <h4>Baugesuch Details</h4>
+            <table style="font-size:12px;">
+                <tr><td><b>Baugesuch Nr:</b></td><td>${props.bgnr} (${props.status})</td></tr>
+                <tr><td><b>Bauobjekt:</b></td><td>${props.bauobjekt}</td></tr>
+                <tr><td><b>Bewilligung:</b></td><td>${props.bewilligung}</td></tr>
+                <tr><td><b>Adresse:</b></td><td>${props.strasse} ${props.hausnr}</td></tr>
+                <tr><td><b>Gemeinde:</b></td><td>${props.plz} ${props.gemeinde}</td></tr>
+                <tr><td><b>Kanton:</b></td><td>${props.kanton}</td></tr>
+                <tr><td><b>Parzelle:</b></td><td>${props.parznr}</td></tr>
+                <tr><td><b>Eigentümer:</b></td><td>${props.vorname} ${props.name}</td></tr>
+                <tr><td><b>Koordinaten:</b></td><td>${props.lat}, ${props.lon}</td></tr>
+            </table>
+        `;
+    };
+    infoPanel.addTo(window.map);
+
+    // Event Listener für Marker-Klick
+    window.addEventListener("markerClicked", function(e) {
+        infoPanel.update(e.detail);
+    });
+});
+</script>
+    
+<<<<<<< HEAD
+            <div class="folium-map" id="map_74cbe19b545cc59e3052ef5025e4b76c" ></div>
+=======
+            <div class="folium-map" id="map_61be7fc2c93c139dc59f56ba528f4878" ></div>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+        
+</body>
+<script>
+    
+    
+<<<<<<< HEAD
+            var map_74cbe19b545cc59e3052ef5025e4b76c = L.map(
+                "map_74cbe19b545cc59e3052ef5025e4b76c",
+=======
+            var map_61be7fc2c93c139dc59f56ba528f4878 = L.map(
+                "map_61be7fc2c93c139dc59f56ba528f4878",
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+                    center: [46.8, 8.3],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+<<<<<<< HEAD
+            L.control.scale().addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+=======
+            L.control.scale().addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+
+            
+
+        
+    
+<<<<<<< HEAD
+            var tile_layer_9c2629ab09be669bb017ba55772747b2 = L.tileLayer(
+=======
+            var tile_layer_1918dde41eb96cedb90c83d883fc592e = L.tileLayer(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+<<<<<<< HEAD
+            tile_layer_9c2629ab09be669bb017ba55772747b2.addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var tile_layer_8934106e8e5540768169b4683d8dc6c4 = L.tileLayer(
+                "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "swisstopo",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8934106e8e5540768169b4683d8dc6c4.addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var macro_element_bdc915b95685baad2d15e90b743a2b56 = L.tileLayer.wms(
+                "https://wms.geo.admin.ch/",
+                {"attribution": "swisstopo", "format": "image/png", "layers": "ch.swisstopo-vd.amtliche-vermessung", "minZoom": 16, "styles": "", "transparent": true, "version": "1.3.0"}
+            );
+        
+    
+            macro_element_bdc915b95685baad2d15e90b743a2b56.addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var tile_layer_026a2247e4a2105892057f102eaf1a6e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_026a2247e4a2105892057f102eaf1a6e.addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var marker_96620055309297e7d1ee19f4d1f7b235 = L.marker(
+=======
+            tile_layer_1918dde41eb96cedb90c83d883fc592e.addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var marker_973c235ad48ab0268eabda977d84eb83 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.29769025334404, 8.364759554730112],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_6fbf37c593af2e0e707c62a26aede8ef = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_f5bcdd322d630feb1a5e149047dd3714 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_973c235ad48ab0268eabda977d84eb83.setIcon(icon_f5bcdd322d630feb1a5e149047dd3714);
+        
+    
+<<<<<<< HEAD
+        var popup_3213f61d6fbd8f6dec56bdfb91217166 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8454083e0ffa3e2a75ce9e093c0a163 = $(`<div id="html_d8454083e0ffa3e2a75ce9e093c0a163" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-12", "status": "bewilligt", "bauobjekt": "Kinderspielhaus", "bewilligung": "2025-05-12", "strasse": "Gizlen", "hausnr": "7", "plz": 5628, "gemeinde": "Aristau", "kanton": "AG", "parznr": 484, "vorname": "Oliver und Anna", "name": "Stoeckli", "lat": 47.29769, "lon": 8.36476};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_3213f61d6fbd8f6dec56bdfb91217166.setContent(html_d8454083e0ffa3e2a75ce9e093c0a163);
+            
+        
+
+        marker_96620055309297e7d1ee19f4d1f7b235.bindPopup(popup_3213f61d6fbd8f6dec56bdfb91217166)
+        ;
+
+        
+=======
+            marker_973c235ad48ab0268eabda977d84eb83.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-12 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Kinderspielhaus</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-05-12</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Gizlen 7</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5628 Aristau</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">484</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Oliver und Anna Stoeckli</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_96620055309297e7d1ee19f4d1f7b235.bindTooltip(
+                `<div>
+                     2024-12 – Kinderspielhaus
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_96620055309297e7d1ee19f4d1f7b235.setIcon(icon_6fbf37c593af2e0e707c62a26aede8ef);
+            
+    
+            var marker_f4dc33937956f18a101525011d46c22f = L.marker(
+=======
+            var marker_ef8f851056437e0cec564d9126795a4a = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.210129569592574, 8.361721804855769],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_15b2fb9febf724aeb0bac38367d4648e = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_e34d7c1471cbda8e6ba61ea516572b73 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ef8f851056437e0cec564d9126795a4a.setIcon(icon_e34d7c1471cbda8e6ba61ea516572b73);
+        
+    
+<<<<<<< HEAD
+        var popup_bf63de42e3fc76c452b2dfc49dc33da8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_069b949f7ff7ae25cecc21c61183c38e = $(`<div id="html_069b949f7ff7ae25cecc21c61183c38e" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-03", "status": "bewilligt", "bauobjekt": "Sichtschutzwaende", "bewilligung": "2025-05-13", "strasse": "Bergstrasse", "hausnr": "20b", "plz": 5642, "gemeinde": "Auw", "kanton": "AG", "parznr": 908, "vorname": "Markus und Sandra", "name": "Schuerpf", "lat": 47.21013, "lon": 8.36172};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_bf63de42e3fc76c452b2dfc49dc33da8.setContent(html_069b949f7ff7ae25cecc21c61183c38e);
+            
+        
+
+        marker_f4dc33937956f18a101525011d46c22f.bindPopup(popup_bf63de42e3fc76c452b2dfc49dc33da8)
+        ;
+
+        
+=======
+            marker_ef8f851056437e0cec564d9126795a4a.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-03 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Sichtschutzwaende</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-05-13</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Bergstrasse 20b</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5642 Auw</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">908</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Markus und Sandra Schuerpf</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_f4dc33937956f18a101525011d46c22f.bindTooltip(
+                `<div>
+                     2025-03 – Sichtschutzwaende
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_f4dc33937956f18a101525011d46c22f.setIcon(icon_15b2fb9febf724aeb0bac38367d4648e);
+            
+    
+            var marker_f8c7838a288d9b3609ea4e71a71a700e = L.marker(
+=======
+            var marker_a4c3709b04b0e42de6358a3648e1f8e7 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.27464683525653, 8.335045453172095],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_dd9558e5fffbe3bc326e8f7ff24603c6 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_b2edc1dc4d718f0979b20febae74b0f8 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_a4c3709b04b0e42de6358a3648e1f8e7.setIcon(icon_b2edc1dc4d718f0979b20febae74b0f8);
+        
+    
+<<<<<<< HEAD
+        var popup_1a5ddd472ed0cce1e639e34e25d9ea4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80f3a81b4ede15a0429001f2cbfeac3e = $(`<div id="html_80f3a81b4ede15a0429001f2cbfeac3e" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-039", "status": "Auflage", "bauobjekt": "Einstellhalle", "bewilligung": null, "strasse": "Regliweg", "hausnr": "6", "plz": 5630, "gemeinde": "Muri", "kanton": "AG", "parznr": 670, "vorname": "Karl und Therese", "name": "Meienberg", "lat": 47.27465, "lon": 8.33505};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_1a5ddd472ed0cce1e639e34e25d9ea4c.setContent(html_80f3a81b4ede15a0429001f2cbfeac3e);
+            
+        
+
+        marker_f8c7838a288d9b3609ea4e71a71a700e.bindPopup(popup_1a5ddd472ed0cce1e639e34e25d9ea4c)
+        ;
+
+        
+=======
+            marker_a4c3709b04b0e42de6358a3648e1f8e7.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-039 (Auflage)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Einstellhalle</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Regliweg 6</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5630 Muri</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">670</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Karl und Therese Meienberg</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_f8c7838a288d9b3609ea4e71a71a700e.bindTooltip(
+                `<div>
+                     2025-039 – Einstellhalle
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_f8c7838a288d9b3609ea4e71a71a700e.setIcon(icon_dd9558e5fffbe3bc326e8f7ff24603c6);
+            
+    
+            var marker_1a48baa57f413b39d100e05b0ba51709 = L.marker(
+=======
+            var marker_0457fb72d6d53eb7c3cc4298be1a40a9 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.2783566093375, 8.34663342865795],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_57bef3e46a6eb81cdda7b531cc961c2c = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_1dfef93af825726606c15f0f77ffc1df = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_0457fb72d6d53eb7c3cc4298be1a40a9.setIcon(icon_1dfef93af825726606c15f0f77ffc1df);
+        
+    
+<<<<<<< HEAD
+        var popup_52aa2463622f7c3ef3c7036d9476db94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f76ed15beb74a8a16eb84b4535ee8767 = $(`<div id="html_f76ed15beb74a8a16eb84b4535ee8767" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-035", "status": "Auflage", "bauobjekt": "Anbau Alterswohnung und Rueckbau Gartenschopf", "bewilligung": null, "strasse": "Verenagaessli", "hausnr": "6", "plz": 5630, "gemeinde": "Muri", "kanton": "AG", "parznr": 3424, "vorname": "Markus und Elisabeth", "name": "Stappung", "lat": 47.27836, "lon": 8.34663};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_52aa2463622f7c3ef3c7036d9476db94.setContent(html_f76ed15beb74a8a16eb84b4535ee8767);
+            
+        
+
+        marker_1a48baa57f413b39d100e05b0ba51709.bindPopup(popup_52aa2463622f7c3ef3c7036d9476db94)
+        ;
+
+        
+=======
+            marker_0457fb72d6d53eb7c3cc4298be1a40a9.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-035 (Auflage)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Anbau Alterswohnung und Rueckbau Gartenschopf</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Verenagaessli 6</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5630 Muri</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">3424</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Markus und Elisabeth Stappung</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_1a48baa57f413b39d100e05b0ba51709.bindTooltip(
+                `<div>
+                     2025-035 – Anbau Alterswohnung und Rueckbau Gartenschopf
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_1a48baa57f413b39d100e05b0ba51709.setIcon(icon_57bef3e46a6eb81cdda7b531cc961c2c);
+            
+    
+            var marker_9080c91cd0d6fb11b8effc1238a62745 = L.marker(
+=======
+            var marker_ada95403c2534627aaf0900bfb085693 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.250996474932826, 8.370060305152307],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_c701f3d6c8d5171e2375115fd92186d3 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_d6edabd79852121202368bcecd6ae2c3 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ada95403c2534627aaf0900bfb085693.setIcon(icon_d6edabd79852121202368bcecd6ae2c3);
+        
+    
+<<<<<<< HEAD
+        var popup_440e7c1e145c8c4fed4a851172a14e70 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f09d67764628f670d5a3b1e49c85d97 = $(`<div id="html_4f09d67764628f670d5a3b1e49c85d97" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-18", "status": "Auflage", "bauobjekt": "Neubau Velounterstand", "bewilligung": null, "strasse": "Unterdorf", "hausnr": "10", "plz": 5634, "gemeinde": "Merenschwand", "kanton": "AG", "parznr": 2137, "vorname": "Vera", "name": "Hurni", "lat": 47.251, "lon": 8.37006};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_440e7c1e145c8c4fed4a851172a14e70.setContent(html_4f09d67764628f670d5a3b1e49c85d97);
+            
+        
+
+        marker_9080c91cd0d6fb11b8effc1238a62745.bindPopup(popup_440e7c1e145c8c4fed4a851172a14e70)
+        ;
+
+        
+=======
+            marker_ada95403c2534627aaf0900bfb085693.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-18 (Auflage)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau Velounterstand</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Unterdorf 10</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5634 Merenschwand</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">2137</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Vera Hurni</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_9080c91cd0d6fb11b8effc1238a62745.bindTooltip(
+                `<div>
+                     2025-18 – Neubau Velounterstand
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_9080c91cd0d6fb11b8effc1238a62745.setIcon(icon_c701f3d6c8d5171e2375115fd92186d3);
+            
+    
+            var marker_daa635f60c1478bacc9db2dc1f96cd38 = L.marker(
+=======
+            var marker_8639c4c1c694a4fa79743379a9530a31 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.24855144456273, 8.366368361500998],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_445749d99604dcceb2759e214d890441 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_07fa883f39a7614926818243fa277fa8 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_8639c4c1c694a4fa79743379a9530a31.setIcon(icon_07fa883f39a7614926818243fa277fa8);
+        
+    
+<<<<<<< HEAD
+        var popup_233d628a972e406e380205b736ce0a68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4326fdebeaf604f0a2e1f6bbe09e9a7a = $(`<div id="html_4326fdebeaf604f0a2e1f6bbe09e9a7a" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-17", "status": "Auflage", "bauobjekt": "Waermepumpe", "bewilligung": null, "strasse": "Sonnenrain", "hausnr": "12", "plz": 5634, "gemeinde": "Merenschwand", "kanton": "AG", "parznr": 2467, "vorname": "Christian und Beatrice", "name": "Schaub", "lat": 47.24855, "lon": 8.36637};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_233d628a972e406e380205b736ce0a68.setContent(html_4326fdebeaf604f0a2e1f6bbe09e9a7a);
+            
+        
+
+        marker_daa635f60c1478bacc9db2dc1f96cd38.bindPopup(popup_233d628a972e406e380205b736ce0a68)
+        ;
+
+        
+=======
+            marker_8639c4c1c694a4fa79743379a9530a31.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-17 (Auflage)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Waermepumpe</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Sonnenrain 12</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5634 Merenschwand</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">2467</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Christian und Beatrice Schaub</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_daa635f60c1478bacc9db2dc1f96cd38.bindTooltip(
+                `<div>
+                     2025-17 – Waermepumpe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_daa635f60c1478bacc9db2dc1f96cd38.setIcon(icon_445749d99604dcceb2759e214d890441);
+            
+    
+            var marker_6b3cb2a70ddb2c73f3694b7f52ad6765 = L.marker(
+=======
+            var marker_8304786d36a9d944c0dc18638a2242c1 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.38193461344549, 8.051578495743867],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_e0f8ce95481c5ac1d40fd753cf796f79 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_c75d859d25e4a92bc6dba649c8504fb0 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_8304786d36a9d944c0dc18638a2242c1.setIcon(icon_c75d859d25e4a92bc6dba649c8504fb0);
+        
+    
+<<<<<<< HEAD
+        var popup_fd73e7b1285468cbb33a82e1268c6869 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_191bfd5470f1fa60c2646b0ba35b3a6b = $(`<div id="html_191bfd5470f1fa60c2646b0ba35b3a6b" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-079", "status": "Gesuch", "bauobjekt": "Neubau Einfamilienhaus", "bewilligung": null, "strasse": "Hombergstrasse", "hausnr": "15", "plz": 5000, "gemeinde": "Aarau", "kanton": "AG", "parznr": 7247, "vorname": "Ernst und Regula", "name": "Schuenmann", "lat": 47.38193, "lon": 8.05158};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_fd73e7b1285468cbb33a82e1268c6869.setContent(html_191bfd5470f1fa60c2646b0ba35b3a6b);
+            
+        
+
+        marker_6b3cb2a70ddb2c73f3694b7f52ad6765.bindPopup(popup_fd73e7b1285468cbb33a82e1268c6869)
+        ;
+
+        
+=======
+            marker_8304786d36a9d944c0dc18638a2242c1.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-079 (Gesuch)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau Einfamilienhaus</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Hombergstrasse 15</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5000 Aarau</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">7247</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Ernst und Regula Schuenmann</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_6b3cb2a70ddb2c73f3694b7f52ad6765.bindTooltip(
+                `<div>
+                     2025-079 – Neubau Einfamilienhaus
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_6b3cb2a70ddb2c73f3694b7f52ad6765.setIcon(icon_e0f8ce95481c5ac1d40fd753cf796f79);
+            
+    
+            var marker_87b865d1dd2664a5766a5a0a49fc2d76 = L.marker(
+=======
+            var marker_bc68f6d553cf8d3884f108f7891f0704 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.37999717131091, 8.186122323205883],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_80c3a7a74df607dc21db619859fd7957 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_7b99f8d62edf4882000a28fdcf347fa0 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_bc68f6d553cf8d3884f108f7891f0704.setIcon(icon_7b99f8d62edf4882000a28fdcf347fa0);
+        
+    
+<<<<<<< HEAD
+        var popup_74a34c54acf7c235a73c69c30c277d5b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36c5d4b0441abca8b8da0876de98d0cf = $(`<div id="html_36c5d4b0441abca8b8da0876de98d0cf" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-0042", "status": "Gesuch", "bauobjekt": "Gartenmauer", "bewilligung": null, "strasse": "Brunnmattstrasse", "hausnr": "30", "plz": 5600, "gemeinde": "Lenzburg", "kanton": "AG", "parznr": 2353, "vorname": "Thomas", "name": "Kieser", "lat": 47.38, "lon": 8.18612};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_74a34c54acf7c235a73c69c30c277d5b.setContent(html_36c5d4b0441abca8b8da0876de98d0cf);
+            
+        
+
+        marker_87b865d1dd2664a5766a5a0a49fc2d76.bindPopup(popup_74a34c54acf7c235a73c69c30c277d5b)
+        ;
+
+        
+=======
+            marker_bc68f6d553cf8d3884f108f7891f0704.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-0042 (Gesuch)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Gartenmauer</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Brunnmattstrasse 30</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5600 Lenzburg</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">2353</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Thomas Kieser</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_87b865d1dd2664a5766a5a0a49fc2d76.bindTooltip(
+                `<div>
+                     2025-0042 – Gartenmauer
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_87b865d1dd2664a5766a5a0a49fc2d76.setIcon(icon_80c3a7a74df607dc21db619859fd7957);
+            
+    
+            var marker_e977de8e5567fb4b0a495aad71f940c0 = L.marker(
+=======
+            var marker_50874f441decb954b5db33014a2efdd4 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.38896695970829, 8.169258413512281],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_d905de768928786b05d867c58c79ca19 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_489847049eac5f6f9d31c3369efa9df1 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_50874f441decb954b5db33014a2efdd4.setIcon(icon_489847049eac5f6f9d31c3369efa9df1);
+        
+    
+<<<<<<< HEAD
+        var popup_e2ee9efbf1932abf47fc9ed274d0853e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd1165fc35894de3d443e0350e5faa1b = $(`<div id="html_fd1165fc35894de3d443e0350e5faa1b" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-0004", "status": "abgelehnt", "bauobjekt": "Heizungsersatz", "bewilligung": null, "strasse": "Juraweg", "hausnr": "7", "plz": 5600, "gemeinde": "Lenzburg", "kanton": "AG", "parznr": 624, "vorname": "Beat", "name": "Thill", "lat": 47.38897, "lon": 8.16926};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_e2ee9efbf1932abf47fc9ed274d0853e.setContent(html_fd1165fc35894de3d443e0350e5faa1b);
+            
+        
+
+        marker_e977de8e5567fb4b0a495aad71f940c0.bindPopup(popup_e2ee9efbf1932abf47fc9ed274d0853e)
+        ;
+
+        
+=======
+            marker_50874f441decb954b5db33014a2efdd4.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-0004 (abgelehnt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Heizungsersatz</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Juraweg 7</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5600 Lenzburg</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">624</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Beat Thill</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_e977de8e5567fb4b0a495aad71f940c0.bindTooltip(
+                `<div>
+                     2025-0004 – Heizungsersatz
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_e977de8e5567fb4b0a495aad71f940c0.setIcon(icon_d905de768928786b05d867c58c79ca19);
+            
+    
+            var marker_8f9e63ff4b452155e730a44763109c7c = L.marker(
+=======
+            var marker_6567a7439668703b089ae0c79483bc25 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.36866436269322, 8.205439097837004],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_b6620da5118ecb5cb4de574720f7a711 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_8f421458596a312bc3f08fe9185d1a37 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_6567a7439668703b089ae0c79483bc25.setIcon(icon_8f421458596a312bc3f08fe9185d1a37);
+        
+    
+<<<<<<< HEAD
+        var popup_08895da57bba2d2b91730fbfa5ae3bb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cfd4349fc7141285a04c021458acf66d = $(`<div id="html_cfd4349fc7141285a04c021458acf66d" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-03", "status": "bewilligt", "bauobjekt": "Photovoltaikanlage", "bewilligung": "2025-04-30", "strasse": "Struebiweg", "hausnr": "1", "plz": 5600, "gemeinde": "Ammerswil", "kanton": "AG", "parznr": 532, "vorname": "Andre", "name": "Fuss", "lat": 47.36866, "lon": 8.20544};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_08895da57bba2d2b91730fbfa5ae3bb6.setContent(html_cfd4349fc7141285a04c021458acf66d);
+            
+        
+
+        marker_8f9e63ff4b452155e730a44763109c7c.bindPopup(popup_08895da57bba2d2b91730fbfa5ae3bb6)
+        ;
+
+        
+=======
+            marker_6567a7439668703b089ae0c79483bc25.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-03 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Photovoltaikanlage</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-04-30</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Struebiweg 1</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5600 Ammerswil</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">532</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Andre Fuss</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_8f9e63ff4b452155e730a44763109c7c.bindTooltip(
+                `<div>
+                     2025-03 – Photovoltaikanlage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_8f9e63ff4b452155e730a44763109c7c.setIcon(icon_b6620da5118ecb5cb4de574720f7a711);
+            
+    
+            var marker_90e795090d0e576a10be0c470bb8b067 = L.marker(
+=======
+            var marker_6310d7fdc7751eff7eef0366acc4c5ef = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.37112874703921, 8.20715605784753],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_439ddbd296aaf3366c50369c6d30d367 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_b4e572642404eb8292fb3617f48a08e6 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_6310d7fdc7751eff7eef0366acc4c5ef.setIcon(icon_b4e572642404eb8292fb3617f48a08e6);
+        
+    
+<<<<<<< HEAD
+        var popup_f04755d8f7daf008c587edb2ae5483e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa425dd7d7469800fb5ab66967097810 = $(`<div id="html_fa425dd7d7469800fb5ab66967097810" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-14", "status": "bewilligt", "bauobjekt": "Umbau und Sanierung Bauernhaus", "bewilligung": "2025-04-30", "strasse": "Weiherackerstrasse", "hausnr": "1", "plz": 5600, "gemeinde": "Ammerswil", "kanton": "AG", "parznr": 101, "vorname": "Stephan", "name": "Marti", "lat": 47.37113, "lon": 8.20716};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_f04755d8f7daf008c587edb2ae5483e7.setContent(html_fa425dd7d7469800fb5ab66967097810);
+            
+        
+
+        marker_90e795090d0e576a10be0c470bb8b067.bindPopup(popup_f04755d8f7daf008c587edb2ae5483e7)
+        ;
+
+        
+=======
+            marker_6310d7fdc7751eff7eef0366acc4c5ef.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-14 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Umbau und Sanierung Bauernhaus</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-04-30</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Weiherackerstrasse 1</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5600 Ammerswil</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">101</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Stephan Marti</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_90e795090d0e576a10be0c470bb8b067.bindTooltip(
+                `<div>
+                     2024-14 – Umbau und Sanierung Bauernhaus
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_90e795090d0e576a10be0c470bb8b067.setIcon(icon_439ddbd296aaf3366c50369c6d30d367);
+            
+    
+            var marker_32d67308f2f23e7aacf7ec7f277d4478 = L.marker(
+=======
+            var marker_2336a3f0fa42bea5a77083250ccff365 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.3822009877039, 8.167619574701193],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_02dcdc2f95f74692ca8964976298dc91 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_67f2ecba4d1c1a2743fea34b79b5de1f = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_2336a3f0fa42bea5a77083250ccff365.setIcon(icon_67f2ecba4d1c1a2743fea34b79b5de1f);
+        
+    
+<<<<<<< HEAD
+        var popup_4763d0fdb87f370984daf494398aebaa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34428ace1c00634121e9d7ee8182f2e6 = $(`<div id="html_34428ace1c00634121e9d7ee8182f2e6" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-015", "status": "bewilligt", "bauobjekt": "Neubau 2 MFH mit Tiefgarage", "bewilligung": "2025-04-23", "strasse": "Gaessli", "hausnr": "11", "plz": 5603, "gemeinde": "Staufen", "kanton": "AG", "parznr": 160, "vorname": "Max", "name": "Zuckschwerdt", "lat": 47.3822, "lon": 8.16762};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_4763d0fdb87f370984daf494398aebaa.setContent(html_34428ace1c00634121e9d7ee8182f2e6);
+            
+        
+
+        marker_32d67308f2f23e7aacf7ec7f277d4478.bindPopup(popup_4763d0fdb87f370984daf494398aebaa)
+        ;
+
+        
+=======
+            marker_2336a3f0fa42bea5a77083250ccff365.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-015 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau 2 MFH mit Tiefgarage</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-04-23</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Gaessli 11</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5603 Staufen</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">AG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">160</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Max Zuckschwerdt</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_32d67308f2f23e7aacf7ec7f277d4478.bindTooltip(
+                `<div>
+                     2025-015 – Neubau 2 MFH mit Tiefgarage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_32d67308f2f23e7aacf7ec7f277d4478.setIcon(icon_02dcdc2f95f74692ca8964976298dc91);
+            
+    
+            var marker_0b3f6c2c05a8f62641ae894d507156aa = L.marker(
+=======
+            var marker_75f7993f02537db9d2604d32bbcc3acb = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.544616301244396, 9.181401258592263],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_7f03fdf8710c203f70cf3d8d1b5e9577 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_495620ee2742c268cab7cf31c90c347e = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_75f7993f02537db9d2604d32bbcc3acb.setIcon(icon_495620ee2742c268cab7cf31c90c347e);
+        
+    
+<<<<<<< HEAD
+        var popup_f531fd1b9fbd9a8cfb830f4b651009d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28dfdc20341c6684423e2cb6f71b293d = $(`<div id="html_28dfdc20341c6684423e2cb6f71b293d" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-0011", "status": "bewilligt", "bauobjekt": "Erstellung Aussenparkpl\u00e4tze", "bewilligung": "2024-03-19", "strasse": "Hauptstrasse", "hausnr": "29", "plz": 8583, "gemeinde": "Sulgen", "kanton": "TG", "parznr": 21, "vorname": "Immobilien AG", "name": "B\u00fchlwiesen", "lat": 47.54462, "lon": 9.1814};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_f531fd1b9fbd9a8cfb830f4b651009d5.setContent(html_28dfdc20341c6684423e2cb6f71b293d);
+            
+        
+
+        marker_0b3f6c2c05a8f62641ae894d507156aa.bindPopup(popup_f531fd1b9fbd9a8cfb830f4b651009d5)
+        ;
+
+        
+=======
+            marker_75f7993f02537db9d2604d32bbcc3acb.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-0011 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Erstellung Aussenparkplätze</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2024-03-19</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Hauptstrasse 29</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">8583 Sulgen</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">TG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">21</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Immobilien AG Bühlwiesen</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_0b3f6c2c05a8f62641ae894d507156aa.bindTooltip(
+                `<div>
+                     2024-0011 – Erstellung Aussenparkplätze
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_0b3f6c2c05a8f62641ae894d507156aa.setIcon(icon_7f03fdf8710c203f70cf3d8d1b5e9577);
+            
+    
+            var marker_bfc5de9384761556b434681433daf087 = L.marker(
+=======
+            var marker_81395295de18ce00c2069e2c12c4788c = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.53890884639213, 9.188975636821988],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_558714102ba2a9f22e96438df4e2f399 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_aff9c04613475c682bbcad0f6a0a7361 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_81395295de18ce00c2069e2c12c4788c.setIcon(icon_aff9c04613475c682bbcad0f6a0a7361);
+        
+    
+<<<<<<< HEAD
+        var popup_48fe80340635bddddfa0ed3ca7691478 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da434e5895052fc6115e5083e7c440c3 = $(`<div id="html_da434e5895052fc6115e5083e7c440c3" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-0056", "status": "bewilligt", "bauobjekt": "Neubau Velounterstand", "bewilligung": "2024-10-29", "strasse": "Grabenhaldenstrasse", "hausnr": "1", "plz": 8583, "gemeinde": "Sulgen", "kanton": "TG", "parznr": 747, "vorname": "Matthias und Simone", "name": "Roth-Pf\u00e4ndler", "lat": 47.53891, "lon": 9.18898};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_48fe80340635bddddfa0ed3ca7691478.setContent(html_da434e5895052fc6115e5083e7c440c3);
+            
+        
+
+        marker_bfc5de9384761556b434681433daf087.bindPopup(popup_48fe80340635bddddfa0ed3ca7691478)
+        ;
+
+        
+=======
+            marker_81395295de18ce00c2069e2c12c4788c.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-0056 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau Velounterstand</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2024-10-29</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Grabenhaldenstrasse 1</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">8583 Sulgen</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">TG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">747</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Matthias und Simone Roth-Pfändler</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_bfc5de9384761556b434681433daf087.bindTooltip(
+                `<div>
+                     2024-0056 – Neubau Velounterstand
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_bfc5de9384761556b434681433daf087.setIcon(icon_558714102ba2a9f22e96438df4e2f399);
+            
+    
+            var marker_facce7f6f221ef010e3c176104e8a8e6 = L.marker(
+=======
+            var marker_ac5e26381dad432bd1c5ef4a30ac1568 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.35939691871992, 7.9980830188785665],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_32e68a028ad7e1281dae6f80c042a9e8 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_c0c73279ba57476860abaf1ef05996bf = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ac5e26381dad432bd1c5ef4a30ac1568.setIcon(icon_c0c73279ba57476860abaf1ef05996bf);
+        
+    
+<<<<<<< HEAD
+        var popup_d781bbb6d5016b5282cd66252e7bb5d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f468016f9b502052903dd0bd33ea6168 = $(`<div id="html_f468016f9b502052903dd0bd33ea6168" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-001", "status": "bewilligt", "bauobjekt": "Wintergarten", "bewilligung": "2025-04-07", "strasse": "Lismeracker", "hausnr": "7", "plz": 5014, "gemeinde": "Gretzenbach", "kanton": "SO", "parznr": 1937, "vorname": "Frank", "name": "Marent", "lat": 47.3594, "lon": 7.99808};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_d781bbb6d5016b5282cd66252e7bb5d4.setContent(html_f468016f9b502052903dd0bd33ea6168);
+            
+        
+
+        marker_facce7f6f221ef010e3c176104e8a8e6.bindPopup(popup_d781bbb6d5016b5282cd66252e7bb5d4)
+        ;
+
+        
+=======
+            marker_ac5e26381dad432bd1c5ef4a30ac1568.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-001 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Wintergarten</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-04-07</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Lismeracker 7</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5014 Gretzenbach</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">SO</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">1937</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Frank Marent</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_facce7f6f221ef010e3c176104e8a8e6.bindTooltip(
+                `<div>
+                     2025-001 – Wintergarten
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_facce7f6f221ef010e3c176104e8a8e6.setIcon(icon_32e68a028ad7e1281dae6f80c042a9e8);
+            
+    
+            var marker_f6c46dc82ababd5198543057099b861b = L.marker(
+=======
+            var marker_80304c3ff294da59eaac32fa784e45a1 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.33487915101361, 7.8325748123026795],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_07e149228b591991b92ae67fb5354212 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_ed318296946e16d20b4464665b7f2ba9 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_80304c3ff294da59eaac32fa784e45a1.setIcon(icon_ed318296946e16d20b4464665b7f2ba9);
+        
+    
+<<<<<<< HEAD
+        var popup_7ad4165f5cceaf35a54763aa32230e58 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a55f3bc1420f5b9ee6de16cdb8c7065 = $(`<div id="html_9a55f3bc1420f5b9ee6de16cdb8c7065" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-03", "status": "bewilligt", "bauobjekt": "Biopool", "bewilligung": "2025-03-11", "strasse": "Fridhag", "hausnr": "17", "plz": 4614, "gemeinde": "Haegendorf", "kanton": "SO", "parznr": 2169, "vorname": "Mark und Simone", "name": "Franz", "lat": 47.33488, "lon": 7.83257};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_7ad4165f5cceaf35a54763aa32230e58.setContent(html_9a55f3bc1420f5b9ee6de16cdb8c7065);
+            
+        
+
+        marker_f6c46dc82ababd5198543057099b861b.bindPopup(popup_7ad4165f5cceaf35a54763aa32230e58)
+        ;
+
+        
+=======
+            marker_80304c3ff294da59eaac32fa784e45a1.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-03 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Biopool</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-03-11</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Fridhag 17</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">4614 Haegendorf</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">SO</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">2169</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Mark und Simone Franz</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_f6c46dc82ababd5198543057099b861b.bindTooltip(
+                `<div>
+                     2025-03 – Biopool
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_f6c46dc82ababd5198543057099b861b.setIcon(icon_07e149228b591991b92ae67fb5354212);
+            
+    
+            var marker_e17bcd2ddb26aad4f7b9f030b2e9d79e = L.marker(
+=======
+            var marker_d1c70faba5a56c9f32c3532d9bf46d64 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.36058765184563, 7.981561968573341],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_7a97f512dc6d31167f25ce8501e3d2c3 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_927ccec6c4f9e98e1bf3e8b21397c001 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_d1c70faba5a56c9f32c3532d9bf46d64.setIcon(icon_927ccec6c4f9e98e1bf3e8b21397c001);
+        
+    
+<<<<<<< HEAD
+        var popup_f5f1aee2123b29eb3a9a9fc61e04ad6f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9be5a9e03424796fcc62bf3e5deeff36 = $(`<div id="html_9be5a9e03424796fcc62bf3e5deeff36" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-007", "status": "bewilligt", "bauobjekt": "Neubau Buero- und Industriegebaeude", "bewilligung": "2025-05-14", "strasse": "Gueterstrasse", "hausnr": "15", "plz": 5014, "gemeinde": "Gretzenbach", "kanton": "SO", "parznr": 81, "vorname": "SA", "name": "Protechna", "lat": 47.36059, "lon": 7.98156};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_f5f1aee2123b29eb3a9a9fc61e04ad6f.setContent(html_9be5a9e03424796fcc62bf3e5deeff36);
+            
+        
+
+        marker_e17bcd2ddb26aad4f7b9f030b2e9d79e.bindPopup(popup_f5f1aee2123b29eb3a9a9fc61e04ad6f)
+        ;
+
+        
+=======
+            marker_d1c70faba5a56c9f32c3532d9bf46d64.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-007 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau Buero- und Industriegebaeude</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-05-14</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Gueterstrasse 15</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5014 Gretzenbach</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">SO</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">81</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">SA Protechna</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_e17bcd2ddb26aad4f7b9f030b2e9d79e.bindTooltip(
+                `<div>
+                     2025-007 – Neubau Buero- und Industriegebaeude
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_e17bcd2ddb26aad4f7b9f030b2e9d79e.setIcon(icon_7a97f512dc6d31167f25ce8501e3d2c3);
+            
+    
+            var marker_4e627ec6d313a93bed1371a8678670c2 = L.marker(
+=======
+            var marker_f0efe5642b3a6cd040ae11468b00837d = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.53435874463238, 9.189074769703634],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_989a424a1b7cd03bf5b47c5e6af09f35 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_f0ec9140b1f4b072b6de5394dd185f83 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_f0efe5642b3a6cd040ae11468b00837d.setIcon(icon_f0ec9140b1f4b072b6de5394dd185f83);
+        
+    
+<<<<<<< HEAD
+        var popup_4caa022e266bcf569fb9c406fcf67c98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca14fd15907291051aa6f096a37e80a6 = $(`<div id="html_ca14fd15907291051aa6f096a37e80a6" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-0051", "status": "bewilligt", "bauobjekt": "Carport, Regenwassertank, Parkplatz", "bewilligung": "2025-10-01", "strasse": "S\u00e4ntisstrasse", "hausnr": "3", "plz": 8583, "gemeinde": "Sulgen", "kanton": "TG", "parznr": 8583, "vorname": "Walter und Karin", "name": "Leemann", "lat": 47.53436, "lon": 9.18907};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_4caa022e266bcf569fb9c406fcf67c98.setContent(html_ca14fd15907291051aa6f096a37e80a6);
+            
+        
+
+        marker_4e627ec6d313a93bed1371a8678670c2.bindPopup(popup_4caa022e266bcf569fb9c406fcf67c98)
+        ;
+
+        
+=======
+            marker_f0efe5642b3a6cd040ae11468b00837d.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-0051 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Carport, Regenwassertank, Parkplatz</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-10-01</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Säntisstrasse 3</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">8583 Sulgen</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">TG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">8583</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Walter und Karin Leemann</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_4e627ec6d313a93bed1371a8678670c2.bindTooltip(
+                `<div>
+                     2024-0051 – Carport, Regenwassertank, Parkplatz
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_4e627ec6d313a93bed1371a8678670c2.setIcon(icon_989a424a1b7cd03bf5b47c5e6af09f35);
+            
+    
+            var marker_1edc1b8e98ca21e687efa263572521be = L.marker(
+=======
+            var marker_3fc608a2814f61ca5da9f3c12d3f6208 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.54268668062729, 9.184685948366432],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_b66125f1973a1631b86099a73b4f5b6f = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_4e8e9696815b69517831016b156df715 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_3fc608a2814f61ca5da9f3c12d3f6208.setIcon(icon_4e8e9696815b69517831016b156df715);
+        
+    
+<<<<<<< HEAD
+        var popup_f0ed39a8d562e88a44d03ca4461d1d1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e503dc9acecf1d7edbce2ad995c74f6f = $(`<div id="html_e503dc9acecf1d7edbce2ad995c74f6f" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2021-0022", "status": "bewilligt", "bauobjekt": "An-/Umbau Einfamilienhaus", "bewilligung": "2021-04-27", "strasse": "Poststrasse", "hausnr": "18", "plz": 8583, "gemeinde": "Sulgen", "kanton": "TG", "parznr": 115, "vorname": "Simon und Natalie", "name": "Bruggmann und Hartmann", "lat": 47.54269, "lon": 9.18469};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_f0ed39a8d562e88a44d03ca4461d1d1f.setContent(html_e503dc9acecf1d7edbce2ad995c74f6f);
+            
+        
+
+        marker_1edc1b8e98ca21e687efa263572521be.bindPopup(popup_f0ed39a8d562e88a44d03ca4461d1d1f)
+        ;
+
+        
+=======
+            marker_3fc608a2814f61ca5da9f3c12d3f6208.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2021-0022 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">An-/Umbau Einfamilienhaus</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2021-04-27</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Poststrasse 18</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">8583 Sulgen</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">TG</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">115</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Simon und Natalie Bruggmann und Hartmann</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_1edc1b8e98ca21e687efa263572521be.bindTooltip(
+                `<div>
+                     2021-0022 – An-/Umbau Einfamilienhaus
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_1edc1b8e98ca21e687efa263572521be.setIcon(icon_b66125f1973a1631b86099a73b4f5b6f);
+            
+    
+            var marker_c1e0a8e8eb79f86ef216dd6e4a6cddeb = L.marker(
+=======
+            var marker_5aef7203687f7a0802f10e0a4eace3a3 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [47.351736861771954, 7.9999549207600555],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_e3759a374d827ca9a7ef6820169adbb5 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_f41687ba4f0ab3da747ea3a13e761628 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_5aef7203687f7a0802f10e0a4eace3a3.setIcon(icon_f41687ba4f0ab3da747ea3a13e761628);
+        
+    
+<<<<<<< HEAD
+        var popup_52a34ef2207f7d17f59d8c3c2b349862 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a96f7a912ff9d293c211778c8de9c6c = $(`<div id="html_5a96f7a912ff9d293c211778c8de9c6c" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2024-0049", "status": "bewilligt", "bauobjekt": "Neubau EFH mit Doppelgarage", "bewilligung": "2025-03-05", "strasse": "Bachweg", "hausnr": "2", "plz": 5014, "gemeinde": "Gretzenbach", "kanton": "SO", "parznr": 1563, "vorname": "Stefan und Jana", "name": "Wobmann", "lat": 47.35174, "lon": 7.99995};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_52a34ef2207f7d17f59d8c3c2b349862.setContent(html_5a96f7a912ff9d293c211778c8de9c6c);
+            
+        
+
+        marker_c1e0a8e8eb79f86ef216dd6e4a6cddeb.bindPopup(popup_52a34ef2207f7d17f59d8c3c2b349862)
+        ;
+
+        
+=======
+            marker_5aef7203687f7a0802f10e0a4eace3a3.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2024-0049 (bewilligt)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Neubau EFH mit Doppelgarage</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">2025-03-05</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Bachweg 2</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">5014 Gretzenbach</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">SO</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">1563</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Stefan und Jana Wobmann</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_c1e0a8e8eb79f86ef216dd6e4a6cddeb.bindTooltip(
+                `<div>
+                     2024-0049 – Neubau EFH mit Doppelgarage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_c1e0a8e8eb79f86ef216dd6e4a6cddeb.setIcon(icon_e3759a374d827ca9a7ef6820169adbb5);
+            
+    
+            var marker_80d0dce2c67da58f5f23c104aea7da3b = L.marker(
+=======
+            var marker_398fc09317ce946917ea6297c66ea228 = L.marker(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                [46.59720422460677, 9.598261585293107],
+                {
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+        
+    
+            var icon_017436c7808b5096710183f4c1da6eb8 = L.AwesomeMarkers.icon(
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+        
+    
+            var icon_395060659bafe71d45779c315c19bff2 = L.AwesomeMarkers.icon(
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_398fc09317ce946917ea6297c66ea228.setIcon(icon_395060659bafe71d45779c315c19bff2);
+        
+    
+<<<<<<< HEAD
+        var popup_356a377c72c77207baf5674a10b72c52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd9a8b82a272bd2c6d9c42a85680b2df = $(`<div id="html_dd9a8b82a272bd2c6d9c42a85680b2df" style="width: 100.0%; height: 100.0%;"><script>             var props = {"bgnr": "2025-005", "status": "Auflage", "bauobjekt": "Gesamtsanierung und Einbau Dachfenster", "bewilligung": null, "strasse": "Veia Son Mitgel", "hausnr": "9", "plz": 7460, "gemeinde": "Savognin", "kanton": "GR", "parznr": 3913, "vorname": "Michele und Sarah", "name": "Vitali", "lat": 46.5972, "lon": 9.59826};             var event = new CustomEvent("markerClicked", { detail: props });             window.dispatchEvent(event);         </script>Klicken für Details...         </div>`)[0];
+                popup_356a377c72c77207baf5674a10b72c52.setContent(html_dd9a8b82a272bd2c6d9c42a85680b2df);
+            
+        
+
+        marker_80d0dce2c67da58f5f23c104aea7da3b.bindPopup(popup_356a377c72c77207baf5674a10b72c52)
+        ;
+
+        
+=======
+            marker_398fc09317ce946917ea6297c66ea228.bindTooltip(
+                `<div>
+                     
+    <table style="font-size: 12px;">
+    <tr><td><b>Baugesuch Nr:</b></td><td align="right">2025-005 (Auflage)</td></tr>
+    <tr><td><b>Bauobjekt:</b></td><td align="right">Gesamtsanierung und Einbau Dachfenster</td></tr>
+    <tr><td><b>Bewilligung:</b></td><td align="right">None</td></tr>
+    <tr><td><b>Adresse:</b></td><td align="right">Veia Son Mitgel 9</td></tr>
+    <tr><td><b>Gemeinde:</b></td><td align="right">7460 Savognin</td></tr>
+    <tr><td><b>Kanton:</b></td><td align="right">GR</td></tr>
+    <tr><td><b>Parzelle:</b></td><td align="right">3913</td></tr>
+    <tr><td><b>Eigentümer:</b></td><td align="right">Michele und Sarah Vitali</td></tr>
+    </table>
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+    
+    
+            marker_80d0dce2c67da58f5f23c104aea7da3b.bindTooltip(
+                `<div>
+                     2025-005 – Gesamtsanierung und Einbau Dachfenster
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+<<<<<<< HEAD
+                marker_80d0dce2c67da58f5f23c104aea7da3b.setIcon(icon_017436c7808b5096710183f4c1da6eb8);
+            
+    
+            var layer_control_656f3c5b1ce17a31774a20b5697c2cc1_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_026a2247e4a2105892057f102eaf1a6e,
+                    "Swisstopo" : tile_layer_8934106e8e5540768169b4683d8dc6c4,
+=======
+            var layer_control_4ee566a76a72b29ec2729016955047d8_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_1918dde41eb96cedb90c83d883fc592e,
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                },
+                overlays :  {
+                    "Amtliche Vermessung" : macro_element_bdc915b95685baad2d15e90b743a2b56,
+                },
+            };
+<<<<<<< HEAD
+            let layer_control_656f3c5b1ce17a31774a20b5697c2cc1 = L.control.layers(
+                layer_control_656f3c5b1ce17a31774a20b5697c2cc1_layers.base_layers,
+                layer_control_656f3c5b1ce17a31774a20b5697c2cc1_layers.overlays,
+=======
+            let layer_control_4ee566a76a72b29ec2729016955047d8 = L.control.layers(
+                layer_control_4ee566a76a72b29ec2729016955047d8_layers.base_layers,
+                layer_control_4ee566a76a72b29ec2729016955047d8_layers.overlays,
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+<<<<<<< HEAD
+            ).addTo(map_74cbe19b545cc59e3052ef5025e4b76c);
+=======
+            ).addTo(map_61be7fc2c93c139dc59f56ba528f4878);
+>>>>>>> 3626c4b019e477f2a7b58ecead345d22fc6f301d
+
+        
+</script>
+</html>
