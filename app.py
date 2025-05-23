@@ -1,13 +1,12 @@
 #app.py in integriertem Terminal ausführen (rechtsklick auf den Dateinamen)
 # conda activate [env_name]
-# streamlit run [filepath] for running web gui
+# streamlit run app.py
 #http://localhost:8501
 
 from main import process_csv
 import streamlit as st
 import pandas as pd
 import numpy as np
-import folium
 from streamlit_folium import st_folium
 from Karte import *
 import os
@@ -28,19 +27,21 @@ csv_path = "data/Datensatz_Bauobjekte_test.csv"
 def Formular(item):
     #st.write("Bitte Formular ausfüllen")
     ID = st.text_input("ID")
+    BGNr = st.text_input("Baugesuchs-Nummer")
+    Status = st.selectbox("Status", ["Bewilligt", "Abgelehnt", "In Bearbeitung"])
+    Bauobjekt = st.text_input("Bauobjekt")
+    Bewilligung = st.date_input("Datum Baubewilligung")
     Kanton = st.text_input("Kanton")
     Gemeinde = st.text_input("Gemeinde")
+    PLZ = st.text_input("PLZ")
     col1, col2 = st.columns([2, 1])
     with col1:
         Strasse = st.text_input("Strasse")
     with col2:
-        Hausnummer = st.text_input("Hausnummer")
-    Baugesuchs_Nummer = st.text_input("Baugesuchs-Nummer")
-    Parzellennummer = st.text_input("Parzellennummer")
-    Bauherrschaft = st.text_input("Bauherrschaft")
-    Bauobjekt = st.text_input("Bauobjekt")
-    Datum_Baubewilligung = st.date_input("Datum Baubewilligung")
-    Status = st.selectbox("Status", ["Bewilligt", "Abgelehnt", "In Bearbeitung"])
+        HausNr = st.text_input("Hausnummer")
+    ParzNr = st.text_input("Parzellennummer")
+    Name = st.text_input("Name")
+    Vorname = st.text_input("Vorname")
     submitted = st.button("Absenden")
     if submitted:
             # robust lesen/schreiben wie vorher
@@ -55,26 +56,27 @@ def Formular(item):
 
             new_entry = {
                 "ID": ID,
+                "Status": Status,
+                "Baugesuchs-Nummer": BGNr,
+                "Bauobjekt": Bauobjekt,
+                "Datum Baubewilligung": Bewilligung,
                 "Kanton": Kanton,
                 "Gemeinde": Gemeinde,
+                "PLZ": PLZ,
                 "Strasse": Strasse,
-                "Hausnummer": Hausnummer,
-                "Baugesuchs-Nummer": Baugesuchs_Nummer,
-                "Parzellennummer": Parzellennummer,
-                "Bauherrschaft": Bauherrschaft,
-                "Bauobjekt": Bauobjekt,
-                "Datum Baubewilligung": Datum_Baubewilligung,
-                "Status": Status
+                "Hausnummer": HausNr,
+                "Parzellennummer": ParzNr,
+                "Name": Name,
+                "Vorname": Vorname   
             }
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_csv(csv_path, index=False)
             st.success("Neues Baugesuch erfasst!")
             gdf = process_csv()
             if gdf is not None:
-                st.success("Daten ausgewertet und GeoPackage aktualisiert!")
+                st.success("GeoPackage erfolgreich erstellt!")
             else:
-                st.warning("Es konnten keine neuen Daten verarbeitet werden.")
-
+                st.error("Fehler beim Erstellen des GeoPackage.")   
             st.session_state["show_dialog"] = False
             st.rerun()
 
@@ -87,7 +89,7 @@ left_column, right_column = st.columns([2,4])
 left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
 left_column.write(f"Bauobjekt: {bauobjekt}")
 left_column.write(f"Bewilligung: {bewilligung}")
-left_column.write(f"Adresse: {strasse} {hausnr}")
+left_column.write(f"Adresse: {Strasse} {hausnr}")
 left_column.write(f"Gemeinde: {plz} {gemeinde}")
 left_column.write(f"Kanton: {kanton}")
 left_column.write(f"Parzelle: {parznr}")

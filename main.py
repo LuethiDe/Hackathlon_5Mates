@@ -59,4 +59,5 @@ def process_csv():
 
     # 7. Importdatei archivieren
     archive_all_csvs()
+    print("Importdateien archiviert!")
     return gdf
