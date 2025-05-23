@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from streamlit_folium import st_folium
-from Karte import map_with_layers
+from Karte import map_with_layers,bgnr,status,color,bauobjekt,bewilligung,kanton,gemeinde,plz, strasse,hausnr, parznr,name,vorname
 import os
 
 st.set_page_config(
@@ -72,17 +72,15 @@ if st.button("Neus Baugesuch erfassen"):
     
 
 left_column, right_column = st.columns([2,4])
+left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
+left_column.write(f"Bauobjekt: {bauobjekt}")
+left_column.write(f"Bewilligung: {bewilligung}")
+left_column.write(f"Adresse: {strasse} {hausnr}")
+left_column.write(f"Gemeinde: {plz} {gemeinde}")
+left_column.write(f"Kanton: {kanton}")
+left_column.write(f"Parzelle: {parznr}")
+left_column.write(f"Eigentümer: {vorname} {name}")
 
-left_column.write("ID:")
-left_column.write("Kanton:")
-left_column.write("Gemeinde:")
-left_column.write("Strasse, Hausnummer:")
-left_column.write("Baugesuchs-Nummer:")
-left_column.write("Parzellennummer:")
-left_column.write("Bauherrschaft:")
-left_column.write("Bauobjekt:")
-left_column.write("Datum Baubewilligung:")
-left_column.write("Status:")
 
 with right_column:
     with open("data/map.html", "r", encoding="utf-8") as f:
