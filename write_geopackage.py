@@ -2,7 +2,7 @@ import geopandas as gpd
 import pandas as pd
 import os
 
-GPKG_PATH = "Data/bauobjekte.gpkg"
+GPKG_PATH = "data/bauobjekte.gpkg"
 LAYER_NAME = "bauobjekte"
 
 def combine_with_existing(new_gdf, gpkg_path=GPKG_PATH, layer_name=LAYER_NAME, unique_id_col=None):
