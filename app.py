@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from streamlit_folium import st_folium
-from Karte import map_with_layers,bgnr,status,color,bauobjekt,bewilligung,kanton,gemeinde,plz, strasse,hausnr, parznr,name,vorname
+from Karte import *
 import os
 
 st.set_page_config(
@@ -22,13 +22,17 @@ st.title('Baugesuch Übersicht_test')
 #Baugesuch erfassen
 csv_path = "data/Datensatz_Bauobjekte_test.csv"
 
-@st.dialog("Cast your vote")
+@st.dialog("Baugesuch erfassen")
 def Formular(item):
-    st.write("Bitte Formular ausfüllen")
+    #st.write("Bitte Formular ausfüllen")
     ID = st.text_input("ID")
     Kanton = st.text_input("Kanton")
     Gemeinde = st.text_input("Gemeinde")
-    Strasse_Hausnummer = st.text_input("Strasse, Hausnummer")
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        Strasse = st.text_input("Strasse")
+    with col2:
+        Hausnummer = st.text_input("Hausnummer")
     Baugesuchs_Nummer = st.text_input("Baugesuchs-Nummer")
     Parzellennummer = st.text_input("Parzellennummer")
     Bauherrschaft = st.text_input("Bauherrschaft")
@@ -51,7 +55,8 @@ def Formular(item):
                 "ID": ID,
                 "Kanton": Kanton,
                 "Gemeinde": Gemeinde,
-                "Strasse, Hausnummer": Strasse_Hausnummer,
+                "Strasse": Strasse,
+                "Hausnummer": Hausnummer,
                 "Baugesuchs-Nummer": Baugesuchs_Nummer,
                 "Parzellennummer": Parzellennummer,
                 "Bauherrschaft": Bauherrschaft,
@@ -69,8 +74,7 @@ def Formular(item):
 if st.button("Neus Baugesuch erfassen"):
     Formular("A")
 
-    
-
+# Ausgabe gewähltes Baugesuch    
 left_column, right_column = st.columns([2,4])
 left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
 left_column.write(f"Bauobjekt: {bauobjekt}")
@@ -86,6 +90,7 @@ with right_column:
     with open("data/map.html", "r", encoding="utf-8") as f:
         html_data = f.read()
     st.components.v1.html(html_data, height=500, width=900)
+
 
 
 
