@@ -3,9 +3,11 @@
 # streamlit run [filepath] for running web gui
 #http://localhost:8501
 
+from main import process_csv
 import streamlit as st
 import pandas as pd
 import numpy as np
+import folium
 from streamlit_folium import st_folium
 from Karte import *
 import os
@@ -67,6 +69,12 @@ def Formular(item):
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_csv(csv_path, index=False)
             st.success("Neues Baugesuch erfasst!")
+            gdf = process_csv("data")
+            if gdf is not None:
+                st.success("Daten ausgewertet und GeoPackage aktualisiert!")
+            else:
+                st.warning("Es konnten keine neuen Daten verarbeitet werden.")
+
             st.session_state["show_dialog"] = False
             st.rerun()
 
@@ -90,7 +98,3 @@ with right_column:
     with open("data/map.html", "r", encoding="utf-8") as f:
         html_data = f.read()
     st.components.v1.html(html_data, height=500, width=900)
-
-
-
-
