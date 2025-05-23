@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 # Streamlit GUI
-st.title('Baugesuch Übersicht_test')
+st.title('Baugesuch Übersicht')
 
 #Baugesuch erfassen
 csv_path = "data/Datensatz_Bauobjekte_test.csv"
