@@ -20,6 +20,8 @@ st.set_page_config(
 
 # Streamlit GUI
 st.title('Baugesuch Übersicht')
+st.write("Hackathon 2025 - Gruppe Teilzeit")
+st.write("Hier können Sie Baugesuche erfassen und die Karte mit den Bauobjekten anzeigen.")
 
 #Baugesuch erfassen
 csv_path = "data/Datensatz_Bauobjekte_test.csv"
