@@ -1,4 +1,2 @@
-ID,Kanton,Gemeinde,"Strasse, Hausnummer",Baugesuchs-Nummer,Parzellennummer,Bauherrschaft,Bauobjekt,Datum Baubewilligung,Status
-1234,Bern,Bern,Länggassstrasse 12,123455,122,Müller,Haus,2025-05-23,Bewilligt
-123,foisfj,pijij,ipjpiji,jijipijipuou,gugiugug,iugiuguigi,ug,2025-05-23,Bewilligt
-,,,,,,,,2025-05-23,Bewilligt
+ID,Status,Baugesuchs-Nummer,Bauobjekt,Datum Baubewilligung,Kanton,Gemeinde,PLZ,Strasse,Hausnummer,Parzellennummer,Name,Vorname
+234,Bewilligt,23,3,2025-05-23,SO,Wangen bei Olten,4612,Hombergstrasse,68,234,w35wohj,jhhwer
