@@ -57,17 +57,17 @@ def Formular(item):
             new_entry = {
                 "ID": ID,
                 "Status": Status,
-                "Baugesuchs-Nummer": BGNr,
+                "BGNr": BGNr,
                 "Bauobjekt": Bauobjekt,
-                "Datum Baubewilligung": Bewilligung,
+                "Bewilligung": Bewilligung,
                 "Kanton": Kanton,
                 "Gemeinde": Gemeinde,
                 "PLZ": PLZ,
                 "Strasse": Strasse,
-                "Hausnummer": HausNr,
-                "Parzellennummer": ParzNr,
+                "HausNr": HausNr,
+                "ParzNr": ParzNr,
                 "Name": Name,
-                "Vorname": Vorname   
+                "Vorname": Vorname
             }
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_csv(csv_path, index=False)
@@ -89,7 +89,7 @@ left_column, right_column = st.columns([2,4])
 left_column.write(f"Baugesuch Nr: {bgnr} ({status})")
 left_column.write(f"Bauobjekt: {bauobjekt}")
 left_column.write(f"Bewilligung: {bewilligung}")
-left_column.write(f"Adresse: {Strasse} {hausnr}")
+left_column.write(f"Adresse: {strasse} {hausnr}")
 left_column.write(f"Gemeinde: {plz} {gemeinde}")
 left_column.write(f"Kanton: {kanton}")
 left_column.write(f"Parzelle: {parznr}")
