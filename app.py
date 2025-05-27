@@ -19,8 +19,8 @@ st.set_page_config(
 )
 
 # Streamlit GUI
-st.title('Baugesuch Übersicht')
-st.write("Hackathon 2025 - Gruppe Teilzeit")
+st.title("Übersicht Baugesuche")
+st.write("Hackathon 2025 - Gruppe Teilzeit +1")
 st.write("Hier können Sie Baugesuche erfassen und die Karte mit den Bauobjekten anzeigen.")
 
 #Baugesuch erfassen
@@ -31,7 +31,7 @@ def Formular(item):
     #st.write("Bitte Formular ausfüllen")
     ID = st.text_input("ID")
     BGNr = st.text_input("Baugesuchs-Nummer")
-    Status = st.selectbox("Status", ["Bewilligt", "Abgelehnt", "In Bearbeitung"])
+    Status = st.selectbox("Status", ["bewilligt", "Auflage", "Gesuch", "abgelehnt", "gelöscht"])
     Bauobjekt = st.text_input("Bauobjekt")
     Bewilligung = st.date_input("Datum Baubewilligung")
     Kanton = st.text_input("Kanton")
@@ -74,10 +74,10 @@ def Formular(item):
             }
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_csv(csv_path, index=False, sep=";")
-            st.success("Neues Baugesuch erfasst!")
+            st.success("Neues Baugesuch erfasst.")
             gdf = process_csv()
             if gdf is not None:
-                st.success("GeoPackage erfolgreich erstellt!")
+                st.success("GeoPackage erfolgreich erstellt.")
             else:
                 st.error("Fehler beim Erstellen des GeoPackage.")
             exp_geojson()
@@ -85,7 +85,7 @@ def Formular(item):
             st.rerun()
 
 
-if st.button("Neus Baugesuch erfassen"):
+if st.button("Neues Baugesuch erfassen"):
     Formular("A")
 
 # Ausgabe gewähltes Baugesuch

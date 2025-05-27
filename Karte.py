@@ -80,9 +80,11 @@ def exp_geojson():
 
     status_colors = {
         "bewilligt": "green",
+        "Bewilligt":"green",
         "Auflage": "orange",
         "Gesuch": "blue",
-        "abgelehnt": "red"
+        "abgelehnt": "red",
+        "gelöscht": "gray"
     }
 
 
@@ -101,7 +103,7 @@ def exp_geojson():
             lon, lat = transformer.transform(easting, northing)
             bgnr = properties.get("BGNr", "Unbekannt")
             status = properties.get("Status", "Unbekannt")
-            color = status_colors.get(status, "gray")
+            color = status_colors.get(status)
             bauobjekt = properties.get("Bauobjekt", "Unbekannt")
             bewilligung = properties.get("Bewilligung", "Unbekannt")
             kanton = properties.get("Kanton", "Unbekannt")
